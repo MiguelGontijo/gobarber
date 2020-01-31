@@ -4,8 +4,9 @@ module.exports = {
     node: true,
   },
   extends: [
-    'airbnb-base',
+    'airbnb-base', 'prettier'
   ],
+  plugins: [ 'prettier '],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -17,7 +18,7 @@ module.exports = {
   rules: {
     "class-method-use-this": "off",
     "no-param-reasign": "off",
-    "camelcase": "off";
+    "camelcase": "off",
     "no-used-vars": [ "error", { "argsIgnoredPattern": "next" }],
   },
 };
