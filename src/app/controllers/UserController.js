@@ -39,7 +39,7 @@ class UserController {
             password: Yup.string()
                 .min(6)
                 .when("oldPassword", (oldPassword, field) =>
-                    oldPassword ? field.require() : field
+                    oldPassword ? field.required() : field
                 ),
             confirmPassword: Yup.string().when("password", (password, field) =>
                 password ? field.required().oneOf([Yup.ref("password")]) : field
@@ -52,7 +52,7 @@ class UserController {
 
         const { email, oldPassword } = req.body;
 
-        const user = await User.findByPk(req.userid);
+        const user = await User.findByPk(req.userId);
 
         if (email && email !== user.email) {
             const userExists = await User.findOne({
